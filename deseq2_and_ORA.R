@@ -106,7 +106,7 @@ EnhancedVolcano(res_df,
 
 ah <- AnnotationHub()
 AnnotationHub::query(ah, c("Ovis", "aries"))
-Oaries <- ah[["AH114633"]] # old one which worked with Biocversion 3.18
+Oaries <- ah[["AH114633"]] 
 columns(Oaries)
 res_original = res
 resSig_original = resSig
