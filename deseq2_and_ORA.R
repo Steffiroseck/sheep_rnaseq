@@ -24,29 +24,10 @@ library(pheatmap)
 metaData = read.csv("All_phenotypes.csv")
 countData<-read.csv("counts.csv",sep=",", header=T, check.names=F)
 
-orig_names <- names(countData) # keep a back-up copy of the original names
-geneID <- countData[,1] # Convert count data to a matrix of appropriate form that DEseq2 can read
-countData <- as.matrix(countData[ , -1]) 
-sampleIndex <- colnames(countData)
-countData <- as.matrix(countData[,sampleIndex])
-rownames(countData) <- geneID
-countData2<-countData
-
-
-# Calculate total number of columns
-total_columns <- ncol(countData2)
-zero_counts <- rowSums(countData2 == 0)
-length(zero_counts)
-table(zero_counts)
-countData2 <- as.data.frame(countData2) %>% dplyr::filter(zero_counts < 0.7 * total_columns)
-mycounts <- countData2
-
-rownames(metaData) <- metaData$LambID 
-metaData$LambID  <- factor(metaData$LambID)
-colnames(countData2) == metaData$LambID 
-
-# Select the columns from countData2 that are in metadata
-countData2 <- countData2[, colnames(countData2) %in% metaData$LambID]
+keep_genes <- rowSums( countData > 5 ) >= 7
+countData2 <- countData[keep_genes,]
+dim(countData)
+dim(countData2)
 
 # construct PCA to see if any environmental effects or not
 deseq2Data <- DESeqDataSetFromMatrix(countData=countData2, colData=metaData, design= ~ 1)# no model only for PCA
