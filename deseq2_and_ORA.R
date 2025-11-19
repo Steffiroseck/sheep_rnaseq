@@ -7,20 +7,18 @@ library(EnhancedVolcano)
 library(ggplot2)
 library(tidyverse)
 library(CorLevelPlot)
-library(DESeq2)
 library(stringr)
 library(dplyr)
 library(clusterProfiler)
 library(pathview)
-library(stringr)
 library(AnnotationDbi)
 library(AnnotationHub)
 library(ggridges)
 library(enrichplot)
 library(KEGGREST)
 library(EnrichmentBrowser)
-library(GSVA)
 library(pheatmap)
+
 
 # load data
 metaData = read.csv("All_phenotypes.csv")
@@ -96,7 +94,32 @@ for(i in 2:length(results)){
 
 summary(res)
 
+# Volcano plot
+res_df <- as.data.frame(res)
+res_df$gene <- rownames(res_df)
 
+# Create the volcano plot
+EnhancedVolcano(res_df,
+    lab = res_df$gene,
+    x = 'log2FoldChange',
+    y = 'padj',
+    pCutoff = 0.05,
+    FCcutoff = 4,
+    ylim=c(0,2),
+    pointSize = 1.5,
+    labSize = 2.5,
+    col = c('grey30', 'forestgreen', 'royalblue', 'red2'),
+    colAlpha = 0.7,
+    legendLabels = c('NS','Log2FC','p-value','p-value & Log2FC'),
+    legendPosition = 'right',
+    title = 'Volcano Plot of DESeq2 Results',
+    subtitle = 'Differential expression analysis on dry matter intake',
+    caption = 'Thresholds: p < 0.05, |log2FC| > 2',
+    drawConnectors = TRUE,
+    widthConnectors = 0.5,
+    max.overlaps = Inf
+)
+ 
 # Over representation analysis
 # extract annotation DB of sheep
 
@@ -145,7 +168,7 @@ names(genes) <- sig_genes_df$ENTREZID
 # omit NA values
 genes <- na.omit(genes)
 # filter on min log2fold change (log2FoldChange > 2)
-genes <- names(genes)[abs(genes) > 0.584]
+genes <- names(genes)[abs(genes) > 2]
 length(genes)
 go_enrich <- enrichGO(gene = genes,
                       universe = names(gene_list),
@@ -169,7 +192,7 @@ names(kegg_genes) <- kegg_sig_genes_df$ENTREZID
 # omit NA values
 kegg_genes <- na.omit(kegg_genes)
 # filter on log2fold change (PARAMETER)
-kegg_genes <- names(kegg_genes)[abs(kegg_genes) > 0.584]
+kegg_genes <- names(kegg_genes)[abs(kegg_genes) > 2]
 Sys.setenv(R_LIBCURL_SSL_REVOKE_BEST_EFFORT=TRUE)
 kegg_organism = "oas"
 kk <- enrichKEGG(gene=kegg_genes, universe=names(gene_list),organism=kegg_organism, pvalueCutoff = 0.05)
