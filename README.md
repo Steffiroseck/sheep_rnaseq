@@ -33,6 +33,13 @@ This repository contains bash and R scripts and workflows for transcriptomic ana
 
 ## 🚀 Getting Started
 
+### Prerequisites for bash
+install via conda por apt.
+- fatsqc
+- trimmomatic
+- hisat2
+- subread(featureCounts)
+
 ### Prerequisites for R
 Install required packages:
 ```r
