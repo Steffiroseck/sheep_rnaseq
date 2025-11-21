@@ -97,7 +97,7 @@ Make sure you have installed the necessary softwares required to run the pipelin
 Install required packages:
 ```r
 install.packages("BiocManager")
-BiocManager::install(c("DESeq2", "clusterProfiler", "WGCNA", "org.Hs.eg.db"))
+BiocManager::install(c("DESeq2", "clusterProfiler", "WGCNA"))
 
 # DESeq2 and ClusterProfiler
 source("Deseq2/2.DGE_and_ORA.R")
