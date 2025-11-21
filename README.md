@@ -110,7 +110,7 @@ source("WGCNA/wgcna.R")
 
 ### 🔄 Workflow Overview
 
-
+```mermaid
 flowchart TD
     A[Raw FASTQ files] --> B[FastQC: Quality check]
     B --> C[Trimmomatic: Adapter trimming and filtering]
