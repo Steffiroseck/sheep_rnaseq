@@ -107,6 +107,8 @@ source("WGCNA/wgcna.R")
 ---
 
 ## 🔄 Workflow Overview
+
+```
 flowchart TD
     A[Raw FASTQ files] --> B[FastQC: Quality check]
     B --> C[Trimmomatic: Adapter trimming & filtering]
@@ -115,3 +117,4 @@ flowchart TD
     E --> F[DESeq2: Differential expression analysis]
     F --> G[ClusterProfiler: Functional enrichment (GO/KEGG)]
     G --> H[WGCNA: Co-expression network & trait correlation]
+```
