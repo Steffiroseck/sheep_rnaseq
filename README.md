@@ -1,4 +1,4 @@
-# 🧬 Multi-Omics Analysis in R: DESeq2, ClusterProfiler, and WGCNA
+# 🧬 RNA Sequencing Analysis
 
 This repository contains bash and R scripts and workflows for transcriptomic analysis using **DESeq2**, **functional enrichment via ClusterProfiler**, and **network construction with WGCNA**. The analyses were performed on RNA-seq data from lambs samples, with a focus on differential expression, biological interpretation, and co-expression module detection.
 
