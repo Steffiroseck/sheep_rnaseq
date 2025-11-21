@@ -40,6 +40,53 @@ install via conda por apt.
 - hisat2
 - subread(featureCounts)
 
+Make sure you have installed the necessary softwares required to run the pipeline. These are mentioned in detail below.
+
+**1. FastQC:** To generate quality reports for the raw fastq files coming from the sequencing platforms.
+  
+  ```
+  conda install bioconda::fastqc
+  ```
+   or
+  
+   ```
+   sudo apt-install fastqc
+  ```
+   or install from source
+   ```
+  wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip
+  unzip fastqc_v0.12.1.zip
+  cd FastQC/
+  chmod 755 fastqc
+  ./fastqc --help
+
+  ```
+   
+**2. Trimmomatic:** 
+  ```
+  conda install bioconda::trimmomatic
+  ```
+  or install from source. Refer to the link below.
+  ```
+  http://www.usadellab.org/cms/?page=trimmomatic
+  ```
+
+**3. Hisat2:** 
+  ```
+  sudo apt-get update
+  sudo apt-get -y install hisat2
+  ```
+  or you can simply download from the source
+  ```
+  curl -s https://cloud.biohpc.swmed.edu/index.php/s/oTtGWbWjaxsQ2Ho/download
+  unzip hisat2-2.2.1-Linux_x86_64.zip
+  cd hisat2-2.2.1
+  ./hisat2 -h
+  ```
+  **5. featureCounts:**
+  The installation instructions can be found at : https://subread.sourceforge.net/featureCounts.html
+
+
   ```
   
   bash NGS_data_analysis/1.ngs_data_analysis.sh
