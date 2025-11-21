@@ -40,6 +40,12 @@ install via conda por apt.
 - hisat2
 - subread(featureCounts)
 
+  ```
+  
+  bash NGS_data_analysis/1.ngs_data_analysis.sh
+  
+  ```
+
 ### Prerequisites for R
 Install required packages:
 ```r
@@ -51,13 +57,9 @@ source("Deseq2/2.DGE_and_ORA.R")
 
 # WGCNA
 source("WGCNA/wgcna.R")
-
-
 ---
 
 ## 🔄 Workflow Overview
-
-```mermaid
 flowchart TD
     A[Raw FASTQ files] --> B[FastQC: Quality check]
     B --> C[Trimmomatic: Adapter trimming & filtering]
