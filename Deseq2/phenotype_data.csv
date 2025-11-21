@@ -1,4 +1,4 @@
-LambID,ADG (kg/day),DMI (g/kg body weight/day)
+LambID,ADG,DMI (g/kg body weight/day)
 6764,0.197,22.9
 6768,0.132,22.9
 6856,0.178,22.3
@@ -35,3 +35,4 @@ LambID,ADG (kg/day),DMI (g/kg body weight/day)
 7198,0.197,20.3
 7220,0.138,21.4
 7236,0.171,22.4
+
