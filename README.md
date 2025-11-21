@@ -16,7 +16,7 @@ This repository contains bash and R scripts and workflows for transcriptomic ana
 - Normalization and dispersion estimation
 - Wald test for differential expression
 - PCA plot, volcano plot
-- Output: `deseq2_results`, `plotPCA.png`
+- Output: `deseq2_results`, `plotPCA.png`, `Volcano.png`
 
 ### 3. Functional Enrichment (ClusterProfiler)
 - Overrepresentation analysis (ORA) for GO and KEGG
