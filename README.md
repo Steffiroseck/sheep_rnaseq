@@ -108,7 +108,7 @@ source("WGCNA/wgcna.R")
 
 ## 🔄 Workflow Overview
 
-```
+```mermaid
 flowchart TD
     A[Raw FASTQ files] --> B[FastQC: Quality check]
     B --> C[Trimmomatic: Adapter trimming & filtering]
@@ -118,3 +118,4 @@ flowchart TD
     F --> G[ClusterProfiler: Functional enrichment (GO/KEGG)]
     G --> H[WGCNA: Co-expression network & trait correlation]
 ```
+
