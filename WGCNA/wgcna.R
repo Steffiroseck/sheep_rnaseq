@@ -19,7 +19,7 @@ library(enrichplot)
 setwd("C:/Users/afbi-roses/Steffi_sheep_transcriptomics/WGCNA_DMI_ADG/")
 out_dir="C:/Users/afbi-roses/Steffi_sheep_transcriptomics/WGCNA_DMI_ADG/"
 
-countData=read.csv("33lambs_featureCounts.csv",header=T,row.names=1,sep=",", check.names = FALSE)
+countData=read.csv("counts_matrix_deseq2.csv",header=T,row.names=1,sep=",", check.names = FALSE)
 head(countData)
 # Calculate total number of columns
 # total_columns <- ncol(countData)
@@ -34,7 +34,7 @@ dim(countData)
 dim(countData2)
 
 # Read the metadata
-sample_metadata = read.csv(file = "33lambs_phenotypes.csv", sep=",", row.names = 1)
+sample_metadata = read.csv(file = "phenotypes.txt", sep=",", row.names = 1)
 head(sample_metadata)
 
 
