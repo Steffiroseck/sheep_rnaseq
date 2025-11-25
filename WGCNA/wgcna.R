@@ -95,7 +95,7 @@ dev.off()
 # PCA
 #################################################################
 
-data <- datExpr_clean
+norm.counts <- datExpr_clean
 # detect outlier samples - pca - method 2
 pca <- prcomp(data)
 pca.dat <- pca$x
