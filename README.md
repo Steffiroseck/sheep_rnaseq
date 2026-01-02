@@ -115,7 +115,7 @@ source("Deseq2/2.DGE_and_ORA.R")
 source("WGCNA/wgcna.R")
 
 # cis-eQTL
-source("cis-eQTL Mapping/cis-eQTL_mapping.R")
+source("cis-eQTL Mapping/eQTL_mapping.R")
 ---
 
 ```
@@ -131,4 +131,4 @@ flowchart TD
     E --> F[DESeq2: Differential expression analysis]
     F --> G[ClusterProfiler: Functional enrichment]
     G --> H[WGCNA: Co-expression network and trait correlation]
-    I --> I[cis-eQTL: genotype-expression-phenotype associations]
+    H --> I[cis-eQTL: genotype-expression-phenotype associations]
