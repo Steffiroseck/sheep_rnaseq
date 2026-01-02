@@ -29,6 +29,12 @@ This repository contains bash and R scripts and workflows for transcriptomic ana
 - Module detection and trait correlation
 - Output: `module_colors.csv`, `eigengene_heatmap.png`, `trait_correlations.csv`
 
+### 5. Cis-expression quantitative trait loci mapping (cis-eQTL)
+- Genotype data and RNA-Seq data loading
+- SNP-level cis-eQTL identification
+- Permutation-based gene-level identification 
+- Output: `significant_snp_level.csv`, `empirical_genes`
+
 ---
 
 ## 🚀 Getting Started
@@ -98,12 +104,18 @@ Install required packages:
 ```r
 install.packages("BiocManager")
 BiocManager::install(c("DESeq2", "clusterProfiler", "WGCNA"))
+```
 
+### Run codes
+```r
 # DESeq2 and ClusterProfiler
 source("Deseq2/2.DGE_and_ORA.R")
 
 # WGCNA
 source("WGCNA/wgcna.R")
+
+# cis-eQTL
+source("cis-eQTL Mapping/cis-eQTL_mapping.R")
 ---
 
 ```
@@ -119,3 +131,4 @@ flowchart TD
     E --> F[DESeq2: Differential expression analysis]
     F --> G[ClusterProfiler: Functional enrichment]
     G --> H[WGCNA: Co-expression network and trait correlation]
+    I --> I[cis-eQTL: genotype-expression-phenotype associations]
